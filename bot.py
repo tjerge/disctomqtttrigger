@@ -159,11 +159,12 @@ async def on_ready():
 
 @bot.listen('on_message')
 async def message(message):
+    thisissoscuffed = str([embed.to_dict() for embed in message.embeds])
     if message.author.id in relay_bots:
         if message.channel.id in channel_topics:
             topic = channel_topics[message.channel.id]
             for word in trigger_words:
-                if word in message.content:
+                if word in thisissoscuffed:
                     await publish_message(topic, word)
                     print(topic, word)
                     break
