@@ -137,7 +137,7 @@ async def delete_relay_bot(ctx, relay_bot_id: discord.Option(str)):
         print(relay_bots)
     else:
         await ctx.respond(f"No relay bot found with ID {relay_bot_id}.")
-@delete_topic.error
+@delete_relay_bot.error
 async def delete_relay_bot_error(ctx, error):
     await ctx.send(error)
 
